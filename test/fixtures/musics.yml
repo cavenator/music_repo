@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+song_one:
+  title: 	Mercy Me
+  album: 	Crimson
+  artist:       Alkaline Trio
+  song: 	/songs/mercy me.m4a
+  image: 	/images/Crimson.jpg
+  genre:        Rock
+
+song_two:
+  title: 	Hot Air Balloon
+  album: 	Hot Air Balloon - The single
+  artist:       Owl City
+  song: 	/songs/balloon.m4a
+  image: 	/images/balloon.jpg
+  genre:        New Age

@@ -1,0 +1,32 @@
+<div id="music-list">
+	<h1>Listing musics</h1>
+
+	<table>
+  	<tr>
+    	<th align=left>Title</th>
+    	<th>Album</th>
+    	<th>Artist</th>
+    	<th>Song</th>
+    	<th>Image</th>
+    	<th>Genre</th>
+  	</tr>
+
+<% for music in @musics %>
+  <tr class="<%= cycle('list-line-odd','list-line-even') %>">
+    <td><%=h music.title %></td>
+    <td align=center><%=h music.album %></td>
+    <td align=center><%=h music.artist %></td>
+    <td align=center><%=h music.song %></td>
+    <td class="list-image" align=center><%=h music.image %></td>
+    <td align="center"><%=h music.genre %></td>
+    <td class="list-actions"><%= link_to 'Show', music %></br>
+    	<%= link_to 'Edit', edit_music_path(music) %></br>
+    	<%= link_to 'Destroy', music, :confirm => 'Are you sure?', :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New music', new_music_path %>

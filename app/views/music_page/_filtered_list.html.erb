@@ -1,0 +1,11 @@
+<tr>
+	<td width=20% align="left")">
+		<%=h filtered_list.title %>
+	</td>
+	<td width=25% align="center"><%=h filtered_list.album %>
+<td width=15% align="center"><%=h filtered_list.artist %></td>
+<td width=15% align="right"><%=h filtered_list.genre %></td>
+<td width=20% align="right")"><%= button_to_remote "Play Song", :url => { :action => 'display'}, :loaded => "justClicked('#{filtered_list.song}','#{filtered_list.image}','#{filtered_list.title}','#{filtered_list.artist}')", :loading => "document.body.style.cursor = 'wait'" %>
+<td width=20% align="right"><%= button_to_remote "Add to List", :url => { :action => 'add_previewed_music_to_list', :id=> filtered_list }, :interactive => "alert('Song #{filtered_list.title} by #{filtered_list.artist} has been added to your selected list')"  %>
+</td>
+</tr>

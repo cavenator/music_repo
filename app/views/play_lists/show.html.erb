@@ -1,0 +1,13 @@
+<p>
+  <b>Username:</b>
+  <%=h @play_list.username %>
+</p>
+
+<p>
+  <b>Playlist title:</b>
+  <%=h @play_list.playlist_title %>
+</p>
+
+
+<%= link_to 'Edit', edit_play_list_path(@play_list) %> |
+<%= link_to 'Back', play_lists_path %>

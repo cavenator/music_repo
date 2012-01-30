@@ -1,0 +1,1 @@
+page.replace_html("music_selection", :partial => "filter_music_by_category", :object => @filtered_list)

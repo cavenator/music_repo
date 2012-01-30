@@ -1,0 +1,20 @@
+<h1>Editing play_list</h1>
+
+<% form_for(@play_list) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label :playlist_title %><br />
+    <%= f.text_field :playlist_title %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @play_list %> |
+<%= link_to 'Back', play_lists_path %>

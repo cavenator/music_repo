@@ -1,0 +1,6 @@
+C:/Users/Aaron/Documents/Rails/ruby/bin/ruby.exe extconf.rb 
+creating Makefile
+
+nmake
+'nmake' is not recognized as an internal or external command,
+operable program or batch file.

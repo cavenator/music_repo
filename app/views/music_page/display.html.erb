@@ -1,0 +1,72 @@
+<head>
+<script type="text/javascript">
+var song_name = "";
+var comboBox = "";
+var filterValue = "";
+function justClicked(word,picture,song, artist)
+{
+// eventually get this working with a plugin for one universal media player
+
+   var play_tool = document.getElementById("player");
+   var pictureObject = document.getElementById("current_image");
+   var titleObject = document.getElementById("Song_Title");
+   song_name = word;
+   var newPlayer = "<embed src=\""+word+"\" autostart=\"true\" loop=\"false\" width=140 height=20></embed>";
+   var newImage = "<img src=\""+picture+"\" height=100 width=100>";
+   titleObject.innerText = song+" by "+artist;
+   pictureObject.innerHTML = newImage;
+   play_tool.innerHTML = newPlayer;
+
+   document.body.style.cursor = "default";
+
+}
+
+function songAdded()
+{
+	alert();
+}
+
+function changeColor(song_id, title)
+{
+	var wordElement = "title"+song_id;
+	alert(wordElement);
+	var element = document.getElementById(wordElement);
+	var replacement = "<span style=\"color:#2E2EFE\">"+title+"</font>";
+	alert(replacement);
+	element.innerHTML = replacement;
+}
+
+</script>
+</head>
+<h1>AJ's Media Selection</h1>
+<div id = "progress_bar">
+</div>
+<table align="right">
+	<tr>
+		<td>
+			<% form_remote_tag :url => {:action => 'filter_music_by_category'} do %>
+			<%= label_tag 'filter_column', 'Filter Columns: ' %>
+			<%= select_tag :filter,"<option>Title</option><option>Album</option><option>Artist</option><option>Genre</option>" %>
+			<%= label_tag 'filter_value','Filter Value:' %>
+			<%= text_field_tag :title, '' %>
+			<%= submit_tag "Filter" %>
+			<% end %>
+		</td>
+	</tr>
+</table>
+<table>
+<tr><td>
+<div id="Song_Title">Song has not yet been chosen to play
+			</div>
+</td></tr></table>
+			<div id="current_image">
+			</div>
+<div id="player">
+</div>
+<% 3.times do %>
+	<br />
+<% end %>
+
+<div id="music_selection">
+	<%= render(:partial => "filter_music_by_category", :object => @filtered_list) %>
+</div>

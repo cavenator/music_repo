@@ -1,0 +1,22 @@
+<div id="music-list">
+	<h1>Listing musics</h1>
+
+	<table>
+  	<tr>
+    	<th align=left width=33%>PlayList Title</th>
+    	<th align=center width=33%>Username</th>
+    	<th align=right width=33%>Song</th>
+  	</tr>
+
+<% for playlists in @playlists %>
+  <tr class="<%= cycle('list-line-odd','list-line-even') %>">
+    <td width=33%><%=h playlists.playlist_title %></td>
+    <td align=center width=33%><%=h playlists.username %></td>
+    <td align=right width=33%><%=h @music.title %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New music', new_music_path %>

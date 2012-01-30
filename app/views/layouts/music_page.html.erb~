@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>AJ's Music Storage: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'music', :media => "all" %>
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag 'prototype' %>
+  <%= jqgrid_stylesheets %>
+  <%= jqgrid_javascripts %>
+</head>
+<body id="music">
+   <div id="banner">
+      <%= "AJ's Music" %>
+   </div>
+   <div id="columns">
+      <div id="side">
+      	<dl>
+      	<dd>
+         <%= link_to("About Me", :action => 'index') %>
+         </dd>
+         <dd>
+         <%= link_to("Music Selection", :action => 'display') %>
+         </dd>
+         <dd>
+         <%= link_to("View Your List", :action => 'view_songs') %>
+         </dd>
+         </dl>
+      </div>
+  <div id = "main">
+   <% if flash[:notice] -%>
+   	<div id="notice"><%= flash[:notice] %></div>
+   <% end -%>
+	<%= yield %>
+   </div>
+  </div>
+</body>
+</html>

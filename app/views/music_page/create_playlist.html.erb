@@ -1,0 +1,20 @@
+<div class="playlist-form">
+
+<%= error_messages_for 'playlist' %>
+
+<% form_for :playlist, :url => { :action => 'save_playlist' } do |form| %>
+<fieldset>
+	<legend>Create Your Playlist Here</legend>
+	
+	<div>
+		<%= form.label :username, "User Name: " %>
+		<%= form.text_field :username, :size => 50 %>
+	</div>
+	<div>
+		<%= form.label :playlist_title, "Playlist: " %>
+		<%= form.text_field :playlist_title, :size => 50 %>
+	</div>
+	<%= submit_tag "Save Playlist", :class => "submit" %>
+</fieldset>
+<% end %>
+</div>

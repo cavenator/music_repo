@@ -1,0 +1,40 @@
+<div id = "indication">
+<h1>About Me</h1>
+</div>
+<p>My name is Aaron James (AJ) Cave.  Originally, my father had requested me to build a site to solicit his music but I decided to create this site in my attempt to learn Rails and demonstrate my love of music. Below is my impersonation of Slash at a 2009 Halloween party.
+</p>
+
+<table align="center">
+<tr><td align="center">
+<%= image_tag 'SAM_0052_Edited.JPG', :size => "250x250" %>
+</td></tr>
+</table>
+
+<h3><u>How my site works</u></h3>
+<p>
+The left-pane navigation works as such by clicking them at any time:
+<ul>
+	<li><u>About Me</u>:<p>  Takes you back to this page.</p>
+	</li>
+	<li><u>Music Selection</u>: <p>This is where you listen to my music. Unlike iTunes, you can actually play music and filter on songs without the music being interrupted.
+		Go ahead .... try it. You may filter based on: </p>
+			<ul><li>Artist</li></ul>
+			<ul><li>Song title</li></ul>
+			<ul><li>Album</li></ul>
+			<ul><li>Genre</li></ul> <p>
+			Another cool feature this site contains is the ability to add songs to a temporary playlist without interrupting the song being played. Although my site is free,
+			this is a beta version and is not even nearly as powerful or sophisticated as the iTunes app.
+			</p>
+	</li>
+	<li><u>View Your List</u>: <p> You may view the list of songs you particularly chosen to be a part of your playlist. From this menu, you may click back to the Music Selection
+			List to resume playing music.  In addition, you may delete the temporary playlist or create the playlist and save it for future purpose.</p>
+	</li>
+</ul>
+</p>
+
+<table align="right">
+	<tr>
+		<td />
+		<td align="left"><%= button_to 'Listen to some music', :action => 'display' %></td>
+	</tr>
+</table>

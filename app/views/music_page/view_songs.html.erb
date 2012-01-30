@@ -1,0 +1,17 @@
+<h2> Your selected Playlist </h2>
+
+<%= render(:partial => "selected_songs", :collection => @selected_list.songs) %>
+
+<table>
+<tr>
+<td width=33% align="left">
+	<%= link_to "Back to Music", :action=> 'display' %>
+</td>
+<td width=33% align="center">
+	<%= button_to "Delete Selected Music List", :action => 'empty_music_selection' %>
+</td>
+<td width=33% align="right">
+	<%= button_to "Create Playlist", :action => 'create_playlist' %>
+</td>
+</tr>
+</table>
