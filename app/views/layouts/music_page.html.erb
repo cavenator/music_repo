@@ -7,6 +7,10 @@
   <%= stylesheet_link_tag 'music', :media => "all" %>
   <%= javascript_include_tag :defaults %>
   <%= javascript_include_tag 'prototype' %>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.js"></script>
+<script type="text/javascript" src="/javascripts/jquery.fancybox-1.3.4/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="/javascripts/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
 </head>
 <body id="music">
    <div id="banner">
@@ -16,13 +20,14 @@
       <div id="side">
       	<dl>
       	<dd>
-         <%= link_to("About Me", :action => 'index') %>
-         </dd>
+           <a id="index" href="/music_page">About Me</a> 
+        </dd>
          <dd>
          <%= link_to("Music Selection", :action => 'display') %>
          </dd>
          <dd>
-         <%= link_to("View Your List", :action => 'view_songs') %>
+       <!--  <%= link_to("View Your List", :action => 'view_songs') %> -->
+         <a id="view_songs" href="/music_page/view_songs">View Your List</a>
          </dd>
          </dl>
       </div>
@@ -34,4 +39,10 @@
    </div>
   </div>
 </body>
+<script type="text/javascript">
+   $(function(){
+       $('#view_songs').fancybox();
+	$('#index').fancybox();
+   });
+</script>
 </html>

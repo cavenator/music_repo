@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :play_lists
 
   map.resources :musics
-  
+  map.connect '/music_page/view_songs.:format', :controller=>'music_page', :action=>'view_songs'  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

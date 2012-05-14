@@ -46,9 +46,9 @@ function changeColor(song_id, title)
 		<td>
 			<% form_remote_tag :url => {:action => 'filter_music_by_category'} do %>
 			<%= label_tag 'filter_column', 'Filter Columns: ' %>
-			<%= select_tag :filter,"<option>Title</option><option>Album</option><option>Artist</option><option>Genre</option>" %>
+			<%= select_tag :filter_column,"<option>Title</option><option>Album</option><option>Artist</option><option>Genre</option>" %>
 			<%= label_tag 'filter_value','Filter Value:' %>
-			<%= text_field_tag :title, '' %>
+			<%= text_field_tag :filter_value, '' %>
 			<%= submit_tag "Filter" %>
 			<% end %>
 		</td>

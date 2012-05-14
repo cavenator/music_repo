@@ -8,6 +8,7 @@ class MusicsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :layout => false }
+      format.json { render :json=>@musics.to_json,:layout => false }
     end
   end
 

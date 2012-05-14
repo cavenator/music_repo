@@ -1,19 +1,19 @@
 class MusicPageController < ApplicationController
+  before_filter :clearMusicFilter, :only=>[:index]
   def index
-  	session[:music] = Music.find_music_for_store
-  	@music = session[:music]
-  	@selected_list = find_selectedlist
+        session[:music] = nil
   end
   
   def filter_music_by_category
-  	name = params[:title]
-  	value = params[:filter]
+  	name = params[:filter_column] 
+        value = "%"+params[:filter_value]+"%"
 #	puts "name = #{name}, value = "#{value}"
-	if name.empty?
+	if value.empty?
  		@filtered_list = Music.find_music_for_store
  	else
- 		@filtered_list = Music.find_by_sql("select * from musics where #{value} like '%#{name}%'")
- 	end
+# 		@filtered_list = Music.find_by_sql("select * from musics where #{value} like '%#{name}%'")
+		@filtered_list = Music.find(:all,:conditions=>["#{name} like ?",value]) 
+	end
  	session[:music] = @filtered_list
  	@selected_list = find_selectedlist
  	respond_to do |format|
@@ -55,6 +55,10 @@ class MusicPageController < ApplicationController
   
   def view_songs
   	@selected_list = find_selectedlist
+        respond_to do |format|
+	   format.html 
+	   format.json { render :json=>@selected_list.to_json, :layout => false}
+	end
   end
   
   def create_playlist
@@ -96,5 +100,7 @@ class MusicPageController < ApplicationController
   	redirect_to :action => 'display'
   end
   
-  
+  def clearMusicFilter
+      session[:music] = nil
+  end 
 end
